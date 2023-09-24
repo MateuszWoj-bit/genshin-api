@@ -3,7 +3,7 @@
  * Licensed under the Open Software License version 3.0
  */
 import Koa from 'koa';
-import koaBody from 'koa-body';
+import { koaBody } from 'koa-body';
 import helmet from 'koa-helmet';
 import cors from '@koa/cors';
 import chalk from 'chalk';
@@ -15,9 +15,14 @@ import chalk from 'chalk';
   const app = new Koa();
   const port = process.env.PORT || 3000;
 
-  // app.use(koaBody());
+  app.use((ctx) => {
+    ctx.body = `Request Body: ${JSON.stringify(ctx.request.body)}`;
+  });
+  
+  app.use(koaBody());
   app.use(helmet());
   app.use(cors());
+
 
   // app.use(router.routes());
 

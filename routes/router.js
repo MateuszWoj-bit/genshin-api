@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 genshin.dev
+ * Copyright (c) 2023 genshin.dev & MJW
  * Licensed under the Open Software License version 3.0
  */
 // import Router from 'koa-router';
@@ -11,7 +11,7 @@
 //   getTypes,
 // } from '../modules/filesystem';
 
-// const router = new Router();
+
 
 
 import Router from 'koa-router';

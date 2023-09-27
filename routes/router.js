@@ -25,12 +25,12 @@ router.get("/test", async (ctx) => {
 
 export default router;
 
-// router.get('/', async (ctx) => {
-//   const types = await getTypes();
-//   ctx.body = {
-//     types,
-//   };
-// });
+router.get('/', async (ctx) => {
+  const types = await getTypes();
+  ctx.body = {
+    types,
+  };
+});
 
 // router.get('/:type', async (ctx) => {
 //   const { type } = ctx.params;

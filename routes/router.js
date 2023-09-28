@@ -14,23 +14,24 @@
 
 
 
-import Router from 'koa-router';
 
-const router = new Router();
+import express from "express";
 
-router.get("/test", async (ctx) => {
-  const queryParameters = ctx.query
-  ctx.body = `Received query parameters: ${JSON.stringify(queryParameters)}`;
+const router = express.Router();
+
+router.get("/test", (req, res) => {
+  const queryParameters = req.query;
+  res.json({
+    message: `Received query parameters: ${JSON.stringify(queryParameters)}`,
+  });
+});
+
+router.get("/", async (req, res) => {
+  const types = await getTypes(); // You need to define and import getTypes()
+  res.json({ types });
 });
 
 export default router;
-
-router.get('/', async (ctx) => {
-  const types = await getTypes();
-  ctx.body = {
-    types,
-  };
-});
 
 // router.get('/:type', async (ctx) => {
 //   const { type } = ctx.params;
